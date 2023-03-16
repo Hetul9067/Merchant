@@ -22,30 +22,45 @@ int main()
     
     //montreal's item
     Item im1("lsd", 10, 20);
+    Item im2("weed", 15, 40);
+    Item im3("heroin", 30, 50);
+    
 
-   /* Item im2("weed", 15, 20, 30);
-    Item im3("heroin", 30, 45, 50);
-   */ 
-    ////Toronto's item
-    //Item it1("lsd", 10, 15, 20);
-    //Item it2("weed", 15, 20, 30);
-    //Item it3("heroin", 30, 45, 50);
-    //Item it4("Cocaine", 10, 15, 20);
-    //
-    ////Vancouver's item
-    //Item it1("lsd", 10, 15, 20);
-    //Item it2("weed", 15, 20, 30);
-    //Item it3("heroin", 30, 45, 50);
-    //Item it4("Cocaine", 10, 15, 20);
-    //Item it5("Cetamine", 20, 25, 20)
-
-
-    /*vector<Item> l1;
-    l1 = { i1, i2, i3 };
+    vector<Item> l1;
+    l1 = { im1, im2, im3 };
     c1.setInventroies(l1);
 
 
-    c1.cityMenu();*/
+    c1.cityMenu();
+
+    //Toronto's item
+    Item it1("lsd", 10, 20);
+    Item it2("weed", 15, 30);
+    Item it3("heroin", 30, 50);
+    Item it4("Cocaine", 10, 20);
+
+    vector<Item> l2;
+    l2 = { it1, it2, it3, it4 };
+    c2.setInventroies(l2);
+
+
+    c2.cityMenu();
+
+
+    //Vancouver's item
+    Item iv1("lsd", 10, 20);
+    Item iv2("weed", 15, 30);
+    Item iv3("heroin", 30, 50);
+    Item iv4("Cocaine", 10, 20);
+    Item iv5("Cetamine", 20, 20);
+
+
+    vector<Item> l3;
+    l3 = { iv1, iv2, iv3, iv4, iv5 };
+    c3.setInventroies(l3);
+
+
+    c3.cityMenu();
 
     //
     //

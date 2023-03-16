@@ -16,7 +16,7 @@ void User:: userMenu() {
 	cout << "###############################" << "\n";
 	cout << "##Item\t\t" << "Buying Price\t\t" << "Selling Price\n";
 	for (int i = 0; i < inventories.size();i++) {
-		cout << "#" << inventories.at(i).getItemName() << "\t\t\t" << inventories[i].getItemBuyingPrice()
+		cout << "#####" << inventories.at(i).getItemName() << "\t\t\t" << inventories[i].getItemBuyingPrice()
 			<< "\t\t\t" << inventories.at(i).getItemSellingPrice() << "\n";
 	
 	

@@ -17,14 +17,15 @@ City ::City(string name) {
 void City::cityMenu() {
 
 
-	cout << "###############################" << "\n";
-	cout << "##Item\t\t" << "Buying Price\t\t" << "Selling Price\n";
+	cout << "###############################################################" << "\n";
+	cout << "#####| Item\t\t|" << "Buying Price|\t\t|" << "Selling Price|\n";
 	for (int i = 0; i < inventories.size();i++) {
-		cout << "#" << inventories.at(i).getItemName() << "\t\t\t" << inventories.at(i).getItemBuyingPrice()
-			<< "\t\t\t" << inventories.at(i).getItemSellingPrice() << "\n";
+		cout << "#####| " << inventories.at(i).getItemName() << "\t\t\t|" << inventories.at(i).getItemBuyingPrice()
+			<< "|\t\t\t|" << inventories.at(i).getItemSellingPrice() << "|\n";
 
 
 	}
+	cout << "###############################################################" << "\n";
 }
 
 void City::sellsItem() {

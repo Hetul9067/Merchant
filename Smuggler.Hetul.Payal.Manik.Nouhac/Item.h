@@ -29,6 +29,8 @@ class Item {
 
 		void setItemBuyingPrice(float price);
 
+		void randomlySetSellingPrice();
+
 		float getItemSellingPrice();
 
 		void setItemSellingPrice(float price);
