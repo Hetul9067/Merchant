@@ -17,7 +17,11 @@ private:
 	vector<Item> inventories;
 
 public:
+	
+	City();
 	City(string name);
+
+	
 
 	void cityMenu();
 

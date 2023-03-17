@@ -1,4 +1,4 @@
-﻿  Item.cpp
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\Item.cpp(30,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\Item.cpp(48,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  User.cpp
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(37,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Smuggler.Hetul.Payal.Manik.Nouhac.vcxproj -> D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe

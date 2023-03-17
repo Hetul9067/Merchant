@@ -2,22 +2,25 @@
 //
 #include "City.h"
 #include "User.h"
+#include "Item.h"
 
 #include <iostream>
 #include <vector>
-//#include "Item.CPP"
 
 using namespace std;
 
 int main()
 {
 
-    
-    //city initialization
-    City c1("Montreal") ;
-    City c2("Toronto");
-    City c3("Vancouver");
+    //list of cities
+    vector<City*> cities;
+    cities.push_back(new City("Montreal"));
+    cities.push_back(new City("Toronto"));
+    cities.push_back(new City("Vancouver"));
 
+
+    //city initialization
+    
     //items initialization for cities
     
     //montreal's item
@@ -28,10 +31,10 @@ int main()
 
     vector<Item> l1;
     l1 = { im1, im2, im3 };
-    c1.setInventroies(l1);
+    cities.at(0)->setInventroies(l1);
 
 
-    c1.cityMenu();
+    cities[0]->cityMenu();
 
     //Toronto's item
     Item it1("lsd", 10, 20);
@@ -41,10 +44,10 @@ int main()
 
     vector<Item> l2;
     l2 = { it1, it2, it3, it4 };
-    c2.setInventroies(l2);
+    cities[1]->setInventroies(l2);
 
 
-    c2.cityMenu();
+    cities[1]->cityMenu();
 
 
     //Vancouver's item
@@ -57,29 +60,37 @@ int main()
 
     vector<Item> l3;
     l3 = { iv1, iv2, iv3, iv4, iv5 };
-    c3.setInventroies(l3);
+    cities[2]->setInventroies(l3);
 
 
-    c3.cityMenu();
+    cities[2]->cityMenu();
 
-    //
-    //
-    //
-    ////user initialization
-    //Item iu1("lsd", 10, 15, 20);
-    //Item iu2("weed", 15, 20, 30);
-    //Item iu3("heroin", 30, 45, 50);
+    
+   
 
-    //User u1("Hetul", );
-    //vector<Item> l2;
-    //cout << "hello this is the information regarding to user;" << "\n";
-    //l2 = { iu1, iu2, iu3 };
-    //u1.setInventories(l2);
-    //u1.userMenu();
-    ////u1.setInventories();
+    
+    //user initialization
+    Item iu1("lsd", 10, 20);
+    Item iu2("weed", 15, 30);
+    Item iu3("heroin", 30, 50);
+
+    User u1("Hetul", cities );
+    vector<Item> lui;
+    cout << "hello this is the information regarding to user;" << "\n";
+    lui = { iu1, iu2, iu3 };
+    u1.setInventories(lui);
+    cout << "user menu ^^^^^^" << "\n";
+    u1.userMenu();
+    cout << "user menu ^^^^^^" << "\n";
+    //u1.setInventories();
 
 
     ///*std::cout << "Hello World!\n";*/
 
+    //clean up dynamically allocated memory
+    for (auto c : cities) {
+        delete c;
+    }
+    
 
 }

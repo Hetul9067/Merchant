@@ -3,6 +3,7 @@
 #ifndef _USER_H_
 #define _USER_H_
 #include "Item.h"
+#include "City.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,18 +15,27 @@ class User {
 private:
 	string name;
 	float userMoney;
-	string currentCityName;
-	string nextCityName;
+	City* currentCity = NULL;
+	City* nextCity;
+	vector<City*> citiesLi;
 
 	vector<Item> inventories;
 public:
-	User(string n, string cityName);
+	User(string n, vector<City*> &cities);
 
+	void randomCityAssigner();
+	
+	void randomNextCityAssigner();
 
-public:
+	void inventoriesListDisplay();
+
+	void userAnsChecker(int a);
+
 	void userMenu();
 
 	void sellTheirWares();
+
+	void buyTheirWares();
 
 	string getName();
 

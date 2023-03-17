@@ -27,7 +27,7 @@ Item :: Item(string name, float bPrice, float quantity) {
 void Item::randomlySetBuyingPrice(float bPrice) {
 	//srand(time(nullptr));
 
-	int maxPrice = bPrice * 1.50;
+	float maxPrice = bPrice * 1.50;
 	cout << "bprice : " << bPrice << "\n";
 	cout << "maxPrice : " << maxPrice << "\n";
 	
@@ -45,7 +45,7 @@ void Item::randomlySetBuyingPrice(float bPrice) {
 void Item::randomlySetSellingPrice() {
 	//srand(time(nullptr));
 
-	int maxPrice = itemBuyingPrice * 1.50;
+	float maxPrice = itemBuyingPrice * 1.50;
 	cout << "item buying Price : " << itemBuyingPrice << "\n";
 	
 	cout << "maxPrice : " << maxPrice << "\n";
@@ -91,53 +91,3 @@ void Item::setItemQuantity(float quantity) {
 }
 
 
-
-//class Item {
-//	private : 
-//		string itemName;
-//		float itemBuyingPrice;
-//		float itemSellingPrice;
-//		float itemQuantity;
-//
-//	public:
-//		Item(string name, float bPrice, float sPrice, float quantity ) {
-//			itemName = name;
-//			itemBuyingPrice = bPrice;
-//			itemSellingPrice = sPrice;
-//			itemQuantity = quantity;
-// 
-//		}
-//			
-//		string getItemName() {
-//			return itemName;
-//		}
-//		void setName(string name) {
-//			itemName = name;
-//		}
-//
-//		float getItemBuyingPrice() {
-//			return itemBuyingPrice;
-//		}
-//		void setItemBuyingPrice(float price) {
-//			itemBuyingPrice = price;
-//		}
-//
-//		float getItemSellingPrice() {
-//			return itemSellingPrice;
-//		}
-//		void setItemSellingPrice(float price) {
-//			itemSellingPrice = price;
-//		}
-//		float getItemQuantity() {
-//			return itemQuantity;
-//		}
-//
-//		float setItemQuantity(float quantity) {
-//			itemQuantity = quantity;
-//		}
-//
-//
-//	
-//};
-//
-//#endif;
