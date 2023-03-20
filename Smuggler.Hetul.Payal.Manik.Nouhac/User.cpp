@@ -9,6 +9,9 @@ using namespace std;
 
 
 //constructor
+User::User() {
+
+}
 User::User(string n, vector<City*> &cities) {
 	name = n;
 	for (int i = 0; i < cities.size(); i++) {
@@ -44,17 +47,18 @@ void User::randomNextCityAssigner() {
 }
 
 void User::inventoriesListDisplay() {
-	cout << "#############################################################" << "\n";
+	cout << "################################################################################" << "\n";
 
-	cout << "##### Item\t\t" << "Buying Price\t\t" << "Selling Price\n";
+	cout << "##### Item\t\t" << "Buying Price\t\t" << "Selling Price\t\t" <<"Quantity\n";
 	for (int i = 0; i < inventories.size();i++) {
 		cout << "##### " << i+1 << ". " << inventories.at(i).getItemName() << "\t\t\t" << inventories[i].getItemBuyingPrice()
-			<< "\t\t\t" << inventories.at(i).getItemSellingPrice() << "\n";
+			<< "\t\t\t" << inventories.at(i).getItemSellingPrice() << "\t\t" << inventories.at(i).getItemQuantity() << "\n";
 
 
 	}
 	
-	cout << "#############################################################" << "\n";
+	cout << "################################################################################" << "\n";
+	
 }
 
 //for selling wares
@@ -78,7 +82,7 @@ void User::sellTheirWares() {
 	
 	do {
 
-		cout << "Please enter the quantities of the "<< inventories[ans].getItemName() <<" : \n";
+		cout << "Please enter the quantities of the "<< inventories[ans-1].getItemName() <<" : \n";
 		cin >> quantity;
 		quantityChecker = false;
 		if (quantity > inventories[ans-1].getItemQuantity()) {
@@ -86,7 +90,7 @@ void User::sellTheirWares() {
 			cout << "Sorry, we don't have that much quantity \n";
 			quantityChecker = true;
 		}
-		} while (quantityChecker);
+	} while (quantityChecker);
 
 	earnedMoney = quantity * inventories[ans - 1].getItemSellingPrice();
 	cout << "################################";
@@ -98,13 +102,13 @@ void User::sellTheirWares() {
 
 	//decreasing user's item quantity after selling it successfully 
 	inventories[ans - 1].setItemQuantity(inventories[ans - 1].getItemQuantity() - quantity);
-	
-
+	cout << "going to user menu";
+	userMenu();
 }
 
 void User::buyTheirWares() {
 	int ans = 0;
-	int quantity = 0;
+	float quantity = 0;
 	bool quantityChecker = false;
 	float investedMoney = 0;
 
@@ -159,12 +163,16 @@ void User::buyTheirWares() {
 		}
 	}
 	if (itemNumber == -1) {
-		inventories.push_back(new Item(currentCity->getCityName(), currentCity->getInventories()[ans-1].getItemSellingPrice(), quantity));
+		Item it(currentCity->getCityName(), currentCity->getInventories()[ans - 1].getItemSellingPrice(), quantity);
+		inventories.push_back(it);
+		itemNumber = inventories.size();
 
 	}
 
-	inventories[itemNumber - 1].setItemQuantity(inventories[itemNumber - 1].getItemQuantity() - quantity);
+	inventories[itemNumber ].setItemQuantity(inventories[itemNumber ].getItemQuantity() + quantity);
+	cout << "it's finished\n";
 
+	userMenu();
 }
 
 void User::userAnsChecker(int a) {
@@ -178,27 +186,31 @@ void User::userAnsChecker(int a) {
 		case 3: 
 			currentCity = nextCity;
 			break;
+		
 	}
 }
 
 //for printing user menu
 void User:: userMenu() {
 	
-	cout << "Hello " << name << "\nWelcome to User menu : \n";
-	
-	inventoriesListDisplay();
-
+	cout << "Welcome to Smuggler Page : \n";
+	cout << "Smuggler name : " << name << "\n";
 	cout << "User's total money : " << userMoney << "\n";
 	cout << "User's current City name : " << currentCity->getCityName() << "\n";
 	
-	cout << "#############################################################" << "\n";
+	
+	inventoriesListDisplay();
+
+	
 
 	int ans = 0;
 	cout << "1. Sell their wares\n";
 	cout << "2. Buy their wares\n";
 	cout << "3. travel to a new city\n";
+	cout << "4. Going back to Main Page\n";
 	cout << "Please enter the require option : \n";
 	cin >> ans;
+	if (ans == 4) return;
 	userAnsChecker(ans);
 	//cout << "User's next city name : " << nextCity->getCityName() << "\n";
 				

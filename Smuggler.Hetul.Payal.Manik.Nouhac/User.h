@@ -14,13 +14,14 @@ class User {
 
 private:
 	string name;
-	float userMoney;
+	float userMoney = 100;
 	City* currentCity = NULL;
 	City* nextCity;
 	vector<City*> citiesLi;
 
 	vector<Item> inventories;
 public:
+	User();
 	User(string n, vector<City*> &cities);
 
 	void randomCityAssigner();

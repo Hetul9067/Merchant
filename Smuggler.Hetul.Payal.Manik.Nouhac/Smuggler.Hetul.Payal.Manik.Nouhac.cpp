@@ -9,11 +9,97 @@
 
 using namespace std;
 
+vector<City*> cities;
+string userName = "";
+
+User u1;
+bool loginChecker = false;
+
+
+static void smugglerMenu(){
+    //user initialization
+    int ans = 0;
+    if (u1.getName() == "") {
+        cout << "Enter the name of the Smuggler : \n";
+        cin >> userName;
+
+        u1 = User(userName, cities);
+
+    }
+    Item iu1("lsd", 10, 20);
+    Item iu2("weed", 15, 30);
+    Item iu3("heroin", 30, 50);
+
+
+    vector<Item> lui;
+    cout << "hello this is the information regarding to user;" << "\n";
+    lui = { iu1, iu2, iu3 };
+    u1.setInventories(lui);
+    cout << "user menu ^^^^^^" << "\n";
+    cout << "1. To access User Menu.\n";
+    cout << "2. To go to Main Page.\n";
+    cout << "Please enter the value :\n";
+    cin >> ans;
+    switch (ans) {
+        case 1: 
+            u1.userMenu();
+            break;
+        case 2:
+            return;
+    }
+    
+    //u1.setInventories();
+
+
+
+}
+
+static void citiesMenu() {
+    int ans = 0;
+    int i = 0;
+    cout << "Cities data : \n";
+    for (i; i < cities.size(); i++) {
+        cout << i + 1 << ". " << cities.at(i)->getCityName() << ".\n";
+    }
+    cout << i + 1 << ". To go to main page.\n";
+    cout << "Please enter the number to access specific city menu : \n";
+    cin >> ans;
+    if (ans == i + 1) {
+        return;
+    }
+    cities.at(ans)->cityMenu();
+    
+}
+
+static void menu() {
+    int a = 0;
+    if (loginChecker)
+        cout << "Welcome to Merchant Game : \n\n";
+    else
+        cout << "Welcome to Main Page: \n\n";
+    cout << "1. To access cities : \n";
+    cout << "2. To access Smuggler account : \n";
+    cout << "please enter number to play game : \n";
+    cin >> a;
+    switch (a) {
+        case 1:
+            citiesMenu();
+            break;
+        case 2: 
+            smugglerMenu();
+            break;
+
+    }
+    loginChecker = true;
+    menu();
+}
 int main()
 {
 
+
+
     //list of cities
-    vector<City*> cities;
+    
     cities.push_back(new City("Montreal"));
     cities.push_back(new City("Toronto"));
     cities.push_back(new City("Vancouver"));
@@ -34,7 +120,7 @@ int main()
     cities.at(0)->setInventroies(l1);
 
 
-    cities[0]->cityMenu();
+    //cities[0]->cityMenu();
 
     //Toronto's item
     Item it1("lsd", 10, 20);
@@ -47,7 +133,7 @@ int main()
     cities[1]->setInventroies(l2);
 
 
-    cities[1]->cityMenu();
+    //cities[1]->cityMenu();
 
 
     //Vancouver's item
@@ -63,18 +149,18 @@ int main()
     cities[2]->setInventroies(l3);
 
 
-    cities[2]->cityMenu();
+    //cities[2]->cityMenu();
 
     
    
 
-    
+    /*
     //user initialization
     Item iu1("lsd", 10, 20);
     Item iu2("weed", 15, 30);
     Item iu3("heroin", 30, 50);
 
-    User u1("Hetul", cities );
+    
     vector<Item> lui;
     cout << "hello this is the information regarding to user;" << "\n";
     lui = { iu1, iu2, iu3 };
@@ -85,6 +171,8 @@ int main()
     //u1.setInventories();
 
 
+    */
+    menu();
     ///*std::cout << "Hello World!\n";*/
 
     //clean up dynamically allocated memory
