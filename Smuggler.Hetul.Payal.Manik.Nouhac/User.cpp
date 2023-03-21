@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Smuggler.Hetul.Payal.Manik.Nouhac.CPP";
 
 using namespace std;
 
@@ -35,6 +36,8 @@ void User::randomCityAssigner() {
 
 		currentCity = citiesLi[rand() % 3];
 	}
+	cout << "current city name: " << currentCity->getCityName() << "/n";
+
 }
 void User::randomNextCityAssigner() {
 	srand(time(nullptr));
@@ -44,6 +47,7 @@ void User::randomNextCityAssigner() {
 
 		nextCity = citiesLi[rand() % 3];
 	} while (nextCity == currentCity);
+	cout << "next city name: " << nextCity->getCityName() << "/n";
 }
 
 void User::inventoriesListDisplay() {
@@ -127,7 +131,7 @@ void User::buyTheirWares() {
 	cout << "#############################################################" << "\n";
 	cout << "Enter 0 to exit from buying menu : \n";
 	//inventoriesListDisplay();
-	cout << "Please enter the item number to buy item in " << currentCity->getCityName() <<" : \n";
+	cout << "Please enter the item number to buy item in " << currentCity->getCityName() << " : \n";
 	cin >> ans;
 	if (ans == 0) {
 		cout << "Thank you for visiting buying menu!";
@@ -136,42 +140,55 @@ void User::buyTheirWares() {
 
 	do {
 
-		cout << "Please enter the quantities of the " << currentCity->getInventories()[ans-1].getItemName() << " : \n";
+		cout << "Please enter the quantities of the " << currentCity->getInventories()[ans - 1].getItemName() << " : \n";
 		cin >> quantity;
 		quantityChecker = false;
-		if (quantity > currentCity->getInventories()[ans-1].getItemQuantity()) {
+		if (quantity > currentCity->getInventories()[ans - 1].getItemQuantity()) {
 			cout << "########################################\n";
 			cout << "Sorry, we don't have that much quantity \n";
 			quantityChecker = true;
 		}
 	} while (quantityChecker);
 
-	investedMoney = quantity * currentCity->getInventories()[ans-1].getItemSellingPrice();
-	cout << "################################\n";
-	cout << "Total cost : " << investedMoney << "\n";
-	cout << "################################";
 
-	//decreasing user's money after buying the item
-	userMoney -= investedMoney;
 
-	//increasing user's item quantity after buying it successfully
-	int itemNumber = -1;
-	for (int i = 0; i < inventories.size(); i++) {
-		if (inventories[i].getItemName() == currentCity->getInventories()[ans - 1].getItemName()) {
-			itemNumber = i;
-			break;
+	investedMoney = quantity * currentCity->getInventories()[ans - 1].getItemSellingPrice();
+
+	if (investedMoney > userMoney) {
+		cout << "###################################\n";
+		cout << "Sorry! you don't have enough money.\n";
+		cout << "###################################\n";
+		
+
+	}
+	else {
+
+		cout << "################################\n";
+		cout << "Total cost : " << investedMoney << "\n";
+		cout << "################################";
+
+		//decreasing user's money after buying the item
+		userMoney -= investedMoney;
+
+		//increasing user's item quantity after buying it successfully
+		int itemNumber = -1;
+		for (int i = 0; i < inventories.size(); i++) {
+			if (inventories[i].getItemName() == currentCity->getInventories()[ans - 1].getItemName()) {
+				itemNumber = i;
+				break;
+			}
 		}
-	}
-	if (itemNumber == -1) {
-		Item it(currentCity->getCityName(), currentCity->getInventories()[ans - 1].getItemSellingPrice(), quantity);
-		inventories.push_back(it);
-		itemNumber = inventories.size();
+		if (itemNumber == -1) {
+			Item it(currentCity->getCityName(), currentCity->getInventories()[ans - 1].getItemSellingPrice(), quantity);
+			inventories.push_back(it);
+			itemNumber = inventories.size();
+
+		}
+
+		inventories[itemNumber ].setItemQuantity(inventories[itemNumber ].getItemQuantity() + quantity);
+		cout << "it's finished\n";
 
 	}
-
-	inventories[itemNumber ].setItemQuantity(inventories[itemNumber ].getItemQuantity() + quantity);
-	cout << "it's finished\n";
-
 	userMenu();
 }
 
@@ -183,9 +200,18 @@ void User::userAnsChecker(int a) {
 		case 2:
 			buyTheirWares();
 			break;
-		case 3: 
+		case 3: {
 			currentCity = nextCity;
+			cout << "welcome to new city : " << currentCity->getCityName() << "\n";
+
+			fineChecker();
+			if (gameLose) {
+
+			}
+			userMenu();
 			break;
+
+		}
 		
 	}
 }
@@ -233,5 +259,47 @@ vector<Item> User::  getInventories() {
 	
 void User :: setInventories(vector<Item> inv) {
 	inventories = inv;
+}
+
+
+float User :: itemQuantitiesChecker() {
+	float totalQuantities = 0;
+	for (int i = 0; i < inventories.size();i++) {
+		totalQuantities += inventories.at(i).getItemQuantity();
+	}
+	return totalQuantities;
+}
+void User::fineChecker() {
+	float totalQuantity = itemQuantitiesChecker();
+	if (totalQuantity >= 8000)
+		caughtPercentageCounter += 40;
+	else if (totalQuantity >= 5000)
+		caughtPercentageCounter += 30;
+	else if (totalQuantity >= 2000)
+		caughtPercentageCounter += 20;
+	else if (totalQuantity >= 500)
+		caughtPercentageCounter += 10;
+
+	if (caughtPercentageCounter >= 100) {
+		caughtPercentageCounter = 0;
+		currentCity = nextCity;
+		randomNextCityAssigner();
+		
+		//minimum one item require
+		if(inventories.size() >= 1)
+			inventories.pop_back();
+		else {
+			gameLose = true;
+			cout << "ohhh! You loss the game.\n";
+		}
+		userMoney -= fine;
+		fine += 50;
+		if (userMoney <= 0) {
+			gameLose = true;
+			cout << "ohh You lose the game!\n";
+		
+		}
+
+	}
 }
 	

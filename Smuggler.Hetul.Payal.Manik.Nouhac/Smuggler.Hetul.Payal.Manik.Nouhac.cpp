@@ -16,7 +16,7 @@ User u1;
 bool loginChecker = false;
 
 
-static void smugglerMenu(){
+static bool smugglerMenu(){
     //user initialization
     int ans = 0;
     if (u1.getName() == "") {
@@ -26,7 +26,7 @@ static void smugglerMenu(){
         u1 = User(userName, cities);
 
     }
-    Item iu1("lsd", 10, 20);
+    Item iu1("lsd", 10, 200000);
     Item iu2("weed", 15, 30);
     Item iu3("heroin", 30, 50);
 
@@ -45,12 +45,12 @@ static void smugglerMenu(){
             u1.userMenu();
             break;
         case 2:
-            return;
+            return false;
     }
     
     //u1.setInventories();
 
-
+    return u1.getGameLose();
 
 }
 
@@ -86,7 +86,10 @@ static void menu() {
             citiesMenu();
             break;
         case 2: 
-            smugglerMenu();
+            bool loseStatus = smugglerMenu();
+            if (loseStatus) {
+                u1.setName("");
+            }
             break;
 
     }

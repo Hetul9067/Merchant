@@ -17,7 +17,11 @@ private:
 	float userMoney = 100;
 	City* currentCity = NULL;
 	City* nextCity;
+	int caughtPercentageCounter = 0;
+	int fine = 100;
 	vector<City*> citiesLi;
+	bool gameLose = false;
+
 
 	vector<Item> inventories;
 public:
@@ -45,6 +49,18 @@ public:
 	vector<Item> getInventories();
 
 	void setInventories(vector<Item> inv);
+
+	bool getGameLose() {
+		return gameLose;
+	}
+
+	void setGameLose(bool status) {
+		gameLose = status;
+	}
+
+	float itemQuantitiesChecker();
+
+	void fineChecker();
 
 };
 

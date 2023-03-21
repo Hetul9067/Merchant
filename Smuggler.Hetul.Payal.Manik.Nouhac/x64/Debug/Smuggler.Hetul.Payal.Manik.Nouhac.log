@@ -1,5 +1,16 @@
-﻿  User.cpp
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(31,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(40,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(168,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Smuggler.Hetul.Payal.Manik.Nouhac.vcxproj -> D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe
+﻿  Smuggler.Hetul.Payal.Manik.Nouhac.cpp
+  User.cpp
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(32,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(43,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(184,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac.CPP(98): warning C4717: 'menu': recursive on all control paths, function will cause runtime stack overflow
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac.cpp(98): warning C4717: 'menu': recursive on all control paths, function will cause runtime stack overflow
+  LINK : D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe not found or not built by the last incremental link; performing full link
+User.obj : error LNK2005: main already defined in Smuggler.Hetul.Payal.Manik.Nouhac.obj
+User.obj : error LNK2005: "bool loginChecker" (?loginChecker@@3_NA) already defined in Smuggler.Hetul.Payal.Manik.Nouhac.obj
+User.obj : error LNK2005: "class std::vector<class City *,class std::allocator<class City *> > cities" (?cities@@3V?$vector@PEAVCity@@V?$allocator@PEAVCity@@@std@@@std@@A) already defined in Smuggler.Hetul.Payal.Manik.Nouhac.obj
+User.obj : error LNK2005: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > userName" (?userName@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in Smuggler.Hetul.Payal.Manik.Nouhac.obj
+User.obj : error LNK2005: "class User u1" (?u1@@3VUser@@A) already defined in Smuggler.Hetul.Payal.Manik.Nouhac.obj
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe : fatal error LNK1169: one or more multiply defined symbols found
