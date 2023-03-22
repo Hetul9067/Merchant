@@ -1,5 +1,4 @@
 ﻿  User.cpp
 D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(32,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(207,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" exited with code 1168.
-LINK : fatal error LNK1168: cannot open D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe for writing
+D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\Smuggler.Hetul.Payal.Manik.Nouhac\User.cpp(208,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Smuggler.Hetul.Payal.Manik.Nouhac.vcxproj -> D:\HETUL\LaSalle\Assignment\algorithms and programming\Assignment_05\Smuggler.Hetul.Payal.Manik.Nouhac\x64\Debug\Smuggler.Hetul.Payal.Manik.Nouhac.exe

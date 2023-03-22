@@ -13,6 +13,7 @@ private:
 	string cityName;
 	float buyingPrice;
 	float sellingPrice;
+	vector<string> itemsReferenceLi;
 
 	vector<Item> inventories;
 
@@ -21,11 +22,13 @@ public:
 	City();
 	City(string name);
 
-	
+	void cityAnsChecker(int a);
 
 	void cityMenu();
 
 	void sellsItem();
+
+	void buyTheirWares();
 
 	string getCityName();
 

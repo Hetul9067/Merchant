@@ -204,10 +204,13 @@ void User::buyTheirWares() {
 		if (itemNumber == -1) {
 			Item it(currentCity->getCityName(), currentCity->getInventories()[ans - 1].getItemSellingPrice(), quantity);
 			inventories.push_back(it);
+
 			itemNumber = inventories.size();
 
 		}
-
+		Item& ite = currentCity->getInventories()[ans - 1];
+		ite.setItemQuantity(currentCity->getInventories()[ans - 1].getItemQuantity() - quantity);
+			currentCity->setCityName("#test");
 		inventories[itemNumber ].setItemQuantity(inventories[itemNumber ].getItemQuantity() + quantity);
 		cout << "it's finished\n";
 

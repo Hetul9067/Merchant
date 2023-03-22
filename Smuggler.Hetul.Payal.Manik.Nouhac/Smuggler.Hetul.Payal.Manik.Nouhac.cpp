@@ -67,7 +67,8 @@ static void citiesMenu() {
     if (ans == i + 1) {
         return;
     }
-    cities.at(ans)->cityMenu();
+    cout << "ans " << ans << "\n";
+    cities.at(ans-1)->cityMenu();
     
 }
 
@@ -140,9 +141,9 @@ int main()
 
 
     //Vancouver's item
-    Item iv1("lsd", 10, 20);
-    Item iv2("weed", 15, 30);
-    Item iv3("heroin", 30, 50);
+    Item iv1("LSD", 10, 20);
+    Item iv2("Weed", 15, 30);
+    Item iv3("Heroin", 30, 50);
     Item iv4("Cocaine", 10, 20);
     Item iv5("Cetamine", 20, 20);
 
