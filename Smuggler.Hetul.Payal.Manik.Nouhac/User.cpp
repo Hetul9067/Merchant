@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Smuggler.Hetul.Payal.Manik.Nouhac.CPP";
+
 
 using namespace std;
 
@@ -40,14 +40,37 @@ void User::randomCityAssigner() {
 
 }
 void User::randomNextCityAssigner() {
-	srand(time(nullptr));
+	//srand(time(nullptr));
+	cout << " random value" << randomValue << "\n\n\n\n";
+	srand(randomValue);
+	if (randomValue == 1) randomValue = 0;
+	else randomValue = 1;
+
 	int ran = rand() % 3;
 
 	do{
 
 		nextCity = citiesLi[rand() % 3];
-	} while (nextCity == currentCity);
-	cout << "next city name: " << nextCity->getCityName() << "/n";
+		//City* tempCity = citiesLi[rand() % 3];
+		//if (nextCity != NULL) {
+		//	while (tempCity == currentCity && tempCity == nextCity) {
+		//		tempCity = citiesLi[rand() % 3];
+		//	}
+		//	nextCity = tempCity;
+		//	
+		//	/*if (tempCity == nextCity) {
+		//	nextCity = currentCity;
+
+		//	}
+		//	else {
+		//		nextCity = tempCity;
+		//	}*/
+		//}
+		//else {
+		//	nextCity = tempCity;
+		//}
+	} while (nextCity == currentCity || nextCity == tempCity);
+	cout << "next city assigner function next city name: " << nextCity->getCityName() << "\n";
 }
 
 void User::inventoriesListDisplay() {
@@ -201,12 +224,17 @@ void User::userAnsChecker(int a) {
 			buyTheirWares();
 			break;
 		case 3: {
+			tempCity = currentCity;
+			cout << "welcome to new city : " << currentCity->getCityName() << "\n";
 			currentCity = nextCity;
 			cout << "welcome to new city : " << currentCity->getCityName() << "\n";
-
+			cout << "next city : " << nextCity->getCityName()<<"\n";
+			randomNextCityAssigner();
+			cout << "next city : " << nextCity->getCityName()<<"\n";
 			fineChecker();
+			
 			if (gameLose) {
-
+				return;
 			}
 			userMenu();
 			break;
@@ -270,28 +298,45 @@ float User :: itemQuantitiesChecker() {
 	return totalQuantities;
 }
 void User::fineChecker() {
+	cout << "now we are in fine checker \n *********** \n******\n*******";
 	float totalQuantity = itemQuantitiesChecker();
 	if (totalQuantity >= 8000)
+	{
 		caughtPercentageCounter += 40;
-	else if (totalQuantity >= 5000)
+		cout << caughtPercentageCounter << "percentage of the caught \n";		
+	}
+	else if (totalQuantity >= 5000) {
 		caughtPercentageCounter += 30;
-	else if (totalQuantity >= 2000)
+		cout << caughtPercentageCounter << "percentage of the caught \n";
+
+	}
+	else if (totalQuantity >= 2000) {
 		caughtPercentageCounter += 20;
-	else if (totalQuantity >= 500)
+		cout << caughtPercentageCounter << "percentage of the caught \n";
+
+	}
+	else if (totalQuantity >= 500) {
 		caughtPercentageCounter += 10;
+		cout << caughtPercentageCounter << "percentage of the caught \n";
+
+	}
 
 	if (caughtPercentageCounter >= 100) {
 		caughtPercentageCounter = 0;
+		tempCity = currentCity;
 		currentCity = nextCity;
 		randomNextCityAssigner();
 		
 		//minimum one item require
-		if(inventories.size() >= 1)
+		cout << "hello\n";
+		if (!inventories.empty()) {
 			inventories.pop_back();
-		else {
+
+		}
+		/*else {
 			gameLose = true;
 			cout << "ohhh! You loss the game.\n";
-		}
+		}*/
 		userMoney -= fine;
 		fine += 50;
 		if (userMoney <= 0) {
@@ -299,6 +344,7 @@ void User::fineChecker() {
 			cout << "ohh You lose the game!\n";
 		
 		}
+		cout << "user MOney is : " << userMoney << "\n";
 
 	}
 }

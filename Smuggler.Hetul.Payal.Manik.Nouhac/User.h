@@ -17,10 +17,12 @@ private:
 	float userMoney = 100;
 	City* currentCity = NULL;
 	City* nextCity;
+	City* tempCity;
 	int caughtPercentageCounter = 0;
 	int fine = 100;
 	vector<City*> citiesLi;
 	bool gameLose = false;
+	int randomValue = 0;
 
 
 	vector<Item> inventories;

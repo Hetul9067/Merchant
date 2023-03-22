@@ -25,16 +25,16 @@ static bool smugglerMenu(){
 
         u1 = User(userName, cities);
 
+        Item iu1("lsd", 10, 200000);
+        Item iu2("weed", 15, 30);
+        Item iu3("heroin", 30, 50);
+
+
+        vector<Item> lui;
+        cout << "hello this is the information regarding to user;" << "\n";
+        lui = { iu1, iu2, iu3 };
+        u1.setInventories(lui);
     }
-    Item iu1("lsd", 10, 200000);
-    Item iu2("weed", 15, 30);
-    Item iu3("heroin", 30, 50);
-
-
-    vector<Item> lui;
-    cout << "hello this is the information regarding to user;" << "\n";
-    lui = { iu1, iu2, iu3 };
-    u1.setInventories(lui);
     cout << "user menu ^^^^^^" << "\n";
     cout << "1. To access User Menu.\n";
     cout << "2. To go to Main Page.\n";
